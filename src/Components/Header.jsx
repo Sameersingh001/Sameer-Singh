@@ -58,7 +58,7 @@ const HeaderSidebarLayout = ({ children }) => {
                 }`}
               >
                 <img
-                  src="/public/Profile.jpg"
+                  src="/Profile.jpg"
                   alt="Avatar"
                   className="object-cover w-full h-full"
                 />
