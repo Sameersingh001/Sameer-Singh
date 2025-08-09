@@ -17,7 +17,7 @@ const navLinks = [
 ];
 
 const HeaderSidebarLayout = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [active, setActive] = useState("#about");
 
   // scroll spy
