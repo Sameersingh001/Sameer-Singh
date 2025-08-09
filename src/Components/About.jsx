@@ -17,7 +17,7 @@ const About = () => {
           <div className="w-full lg:w-1/3 flex flex-col items-center text-center">
             <div className="relative w-40 h-40 sm:w-52 sm:h-52 rounded-full overflow-hidden border-6 border-teal-400 shadow-2xl">
               <img
-                src="/public/Profile.jpg"
+                src="/Profile.jpg"
                 alt="Profile of Sameer Singh"
                 className="object-cover w-full h-full"
               />

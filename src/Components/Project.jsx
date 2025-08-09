@@ -4,7 +4,7 @@ import { ExternalLink, Code, Star } from "lucide-react";
 const projects = [
   {
     title: "Desi Jugaad App",
-    image: '/public/Project1.png',
+    image: '/Project1.png',
     description: "Creative Desi Jugaad app showcasing unique Indian hacks with categories, tips, and smart everyday solutions.",
     link: "https://desi-jugaad-app.vercel.app/",
     repo: "https://github.com/Sameersingh001/Desi-Jugaad-App",
@@ -13,7 +13,7 @@ const projects = [
   },
   {
     title: "Sundown Clone",
-    image: '/public/Project2.png',
+    image: '/Project2.png',
     description:"A modern, responsive music streaming frontend built with HTML, CSS, and JavaScript, offering a sleek interface, smooth animations, and playlist management for an engaging user experience.",
     link: "https://sundown-studio-clone-app.netlify.app/",
     repo: "",
@@ -22,7 +22,7 @@ const projects = [
   },
   {
     title: "Education Platform",
-    image: '/public/Project3.png',
+    image: '/Project3.png',
     description: "An interactive coding practice platform frontend built with HTML, CSS, and JavaScript, featuring responsive design, real-time code editing UI, and a clean, user-friendly interface for learners.",
     link: "https://codymasterweb.kesug.com/login.php",
     repo: "#",
