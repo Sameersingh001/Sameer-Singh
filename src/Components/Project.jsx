@@ -29,6 +29,24 @@ const projects = [
     tags: ["PHP", "MySQL", "Infinity Free", "HTML", "CSS" ,"JS"],
     featured: false,
   },
+  {
+    title: "Master OS",
+    image: '/Project4.png',
+    description: "MasterOS is a lightweight, static website built using HTML, CSS, and JavaScript, designed to showcase simplicity and elegance. It delivers a seamless user experience without any reliance on server-side rendering",
+    link: "https://master-os.vercel.app/",
+    repo: "https://github.com/Sameersingh001/Master-OS",
+    tags: ["HTML", "CSS" ,"JS"],
+    featured: false,
+  },
+  {
+    title: "Inian Jugaad API",
+    image: '/Project5.png',
+    description: "Indian Jugaad API is a creative and fun REST API that provides a large collection of unique Indian life hacks, quick fixes, and ingenious workarounds — locally known as jugaads.It delivers ready-to-use JSON data, each entry enriched with",
+    link: "https://indian-jugaad-api.onrender.com/",
+    repo: "https://github.com/Sameersingh001/Indian_jugaad_api_",
+    tags: ["HTML", "Tailwind" ,"JS", "Express", "CORS", "Render"],
+    featured: false,
+  },
 ];
 
 const Projects = () => {
