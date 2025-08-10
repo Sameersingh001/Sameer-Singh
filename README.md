@@ -19,8 +19,6 @@ This portfolio includes a variety of projects, each showcasing a different skill
 3. **Modern CSS**: The portfolio uses modern CSS techniques, including Flexbox, Grid, and CSS animations.
 4. **React Hooks**: The portfolio uses React Hooks to manage state and side effects.
 5. **Vite**: The portfolio uses Vite, a fast and lightweight development server, to enable fast development and hot reloading.
-6. **ESLint**: The portfolio uses ESLint, a popular JavaScript linter, to ensure code quality and consistency.
-7. **TSLint**: The portfolio uses TSLint, a popular TypeScript linter, to ensure code quality and consistency.
 8. **Tailwind CSS**: The portfolio uses Tailwind CSS, a popular CSS framework, to simplify and streamline CSS development.
 
 🧰 **Tech Stack Table**
