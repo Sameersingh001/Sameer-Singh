@@ -8,14 +8,16 @@ import Footer from './Components/Footer';
 
 function App() {
   return (
+    <>
     <HeaderSidebarLayout>
       {/* Main content */}  
       <About />
+    </ HeaderSidebarLayout >
       <Skills />
       <Projects />
       <Contact />
       <Footer />
-    </HeaderSidebarLayout>
+    </>
   );
 }
 

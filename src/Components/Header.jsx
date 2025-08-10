@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Menu,
-  X,
-  User,
-  Code,
-  Briefcase,
-  Mail,
-  Globe,
-} from "lucide-react";
+import { Menu, X, User, Code, Briefcase, Mail, Globe } from "lucide-react";
 
 const navLinks = [
   { href: "#about", label: "About", icon: <User className="w-5 h-5" /> },
@@ -17,17 +9,18 @@ const navLinks = [
 ];
 
 const HeaderSidebarLayout = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [active, setActive] = useState("#about");
 
-  // scroll spy
+  // Scroll spy for active link
   useEffect(() => {
     const onScroll = () => {
       const scrollPos = window.scrollY + 120;
-      for (const link of navLinks) {
-        const el = document.querySelector(link.href);
+      for (let i = navLinks.length - 1; i >= 0; i--) {
+        const el = document.querySelector(navLinks[i].href);
         if (el instanceof HTMLElement && scrollPos >= el.offsetTop) {
-          setActive(link.href);
+          setActive(navLinks[i].href);
+          break;
         }
       }
     };
@@ -39,93 +32,50 @@ const HeaderSidebarLayout = ({ children }) => {
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar */}
       <aside
-        className={`
-          fixed inset-y-0 left-0 z-40 flex flex-col bg-gradient-to-b from-teal-600 to-teal-800 text-white shadow-xl transition-all duration-300
-          ${sidebarOpen ? "w-64" : "w-16"}
-          md:relative md:translate-x-0
-          ${!sidebarOpen ? "overflow-hidden" : ""}
-          sm:fixed
-        `}
-        aria-label="Sidebar"
+        className={`fixed inset-y-0 left-0 z-50 flex flex-col bg-gradient-to-b from-teal-600 to-teal-800 text-white shadow-lg transform transition-transform duration-300 w-full
+          ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
-        {/* Sidebar Header */}
-        <div className="flex items-center justify-between px-3 py-3 border-b border-teal-500">
-          <div className="flex items-center gap-2 overflow-hidden">
-            <div className="relative">
-              <div
-                className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden transform transition-transform duration-200 ${
-                  sidebarOpen ? "scale-100" : "scale-90"
-                }`}
-              >
-                <img
-                  src="/Profile.jpg"
-                  alt="Avatar"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-            </div>
-            <div className="flex flex-col overflow-hidden">
-              <div
-                className={`text-base sm:text-lg font-bold leading-tight transition-all duration-200 ${
-                  sidebarOpen ? "opacity-100" : "opacity-0 w-0"
-                }`}
-              >
-                Sameer Singh
-              </div>
-              <div
-                className={`text-[10px] sm:text-xs transition-all duration-200 ${
-                  sidebarOpen ? "opacity-100" : "opacity-0 w-0"
-                }`}
-              >
-                Fullstack Dev
-              </div>
+        {/* Sidebar header */}
+        <div className="flex items-center justify-between px-4 py-4 border-b border-teal-500">
+          <div className="flex items-center gap-3">
+            <img
+              src="/Profile.jpg"
+              alt="Avatar"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
+            />
+            <div>
+              <h1 className="text-lg font-bold">Sameer Singh</h1>
+              <p className="text-xs">Fullstack Dev</p>
             </div>
           </div>
           <button
-            aria-label="Toggle sidebar"
-            onClick={() => setSidebarOpen((o) => !o)}
+            aria-label="Close sidebar"
+            onClick={() => setSidebarOpen(false)}
             className="p-2 rounded-md hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-white"
           >
-            {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Navigation Links */}
-        <nav className="flex-1 overflow-y-auto mt-3 px-2">
+        {/* Nav links */}
+        <nav className="flex-1 overflow-y-auto px-2 py-4">
           <ul className="space-y-1">
             {navLinks.map((link) => {
               const isActive = active === link.href;
               return (
-                <li key={link.href} className="relative group">
+                <li key={link.href}>
                   <a
                     href={link.href}
-                    onClick={() => setActive(link.href)}
-                    className={`
-                      flex items-center gap-3 px-3 py-2 rounded-xl transition
-                      ${isActive ? "bg-white/20" : "hover:bg-white/10"}
-                      ${sidebarOpen ? "justify-start" : "justify-center"}
-                    `}
+                    onClick={() => {
+                      setActive(link.href);
+                      setSidebarOpen(false);
+                    }}
+                    className={`flex items-center gap-3 px-3 py-2 rounded-xl transition
+                      ${isActive ? "bg-white/20" : "hover:bg-white/10"}`}
                   >
-                    <div className={isActive ? "text-white" : "text-teal-100"}>
-                      {link.icon}
-                    </div>
-                    <span
-                      className={`
-                        flex-1 text-sm font-medium whitespace-nowrap text-white transition-all
-                        ${sidebarOpen ? "opacity-100" : "opacity-0 w-0 overflow-hidden"}
-                      `}
-                    >
-                      {link.label}
-                    </span>
+                    {link.icon}
+                    <span className="text-sm font-medium">{link.label}</span>
                   </a>
-                  {!sidebarOpen && (
-                    <div className="absolute left-full top-1/2 -translate-y-1/2 ml-2 rounded-md bg-black/80 text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none text-white">
-                      {link.label}
-                    </div>
-                  )}
-                  {isActive && sidebarOpen && (
-                    <div className="absolute left-0 top-0 h-full w-1 rounded-r-full bg-gradient-to-b from-green-300 to-teal-200" />
-                  )}
                 </li>
               );
             })}
@@ -133,61 +83,56 @@ const HeaderSidebarLayout = ({ children }) => {
         </nav>
       </aside>
 
-      {/* Overlay for mobile when sidebar open */}
-      {!sidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black/30 z-30 md:hidden"
-          onClick={() => setSidebarOpen(true)}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* Content wrapper */}
-      <div
-        className={`
-          flex-1 flex flex-col min-h-screen transition-all duration-300
-          ${sidebarOpen ? "pl-[16rem]" : "pl-16"}
-          sm:pl-4
-        `}
-      >
-        {/* Top header */}
-        <header className="sticky top-0 z-50 bg-white/90 dark:bg-[#0f1f44]/90 backdrop-blur-md border-b border-gray-200 dark:border-[#23335d] flex items-center justify-between px-4 sm:px-6 py-3 shadow-sm">
+      {/* Main content */}
+      <div className="flex-1 flex flex-col min-h-screen">
+        {/* Header */}
+        <header className="sticky top-0 z-40 bg-white border-b border-gray-200 flex items-center justify-between px-4 sm:px-6 py-3 shadow-sm">
           <div className="flex items-center gap-3">
-            <div className="text-xl font-bold text-teal-700 dark:text-teal-300">
-              Sameer Singh
-            </div>
-            <div className="hidden md:flex gap-4">
+            <button
+              aria-label="Toggle sidebar"
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400"
+            >
+              {sidebarOpen ? (
+                <X className="w-5 h-5 text-teal-700" />
+              ) : (
+                <Menu className="w-5 h-5 text-teal-700" />
+              )}
+            </button>
+            <span className="text-xl font-bold text-teal-700">Sameer Singh</span>
+            <div className="hidden md:flex gap-4 ml-6">
               {navLinks.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
-                  className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-300 transition"
+                  className={`text-sm font-medium transition ${
+                    active === l.href
+                      ? "text-teal-600"
+                      : "text-gray-600 hover:text-teal-600"
+                  }`}
                 >
                   {l.label}
                 </a>
               ))}
             </div>
           </div>
-          <div className="flex items-center gap-3">
-            <button className="flex items-center gap-1 text-sm bg-teal-500 hover:bg-teal-600 text-white px-3 py-1 rounded-full shadow">
-              <Globe className="w-4 h-4" />
-              <span className="hidden sm:inline">Portfolio</span>
-            </button>
-            <div className="md:hidden">
-              <button
-                aria-label="Toggle sidebar"
-                onClick={() => setSidebarOpen((o) => !o)}
-                className="p-2 rounded-md hover:bg-gray-200  transition text-white"
-              >
-                {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </button>
-            </div>
-          </div>
+          <button className="flex items-center gap-1 text-sm bg-teal-500 hover:bg-teal-600 text-white px-3 py-1 rounded-full shadow">
+            <Globe className="w-4 h-4" />
+            <span className="hidden sm:inline">Portfolio</span>
+          </button>
         </header>
 
-        {/* Main content area */}
+        {/* Content */}
         <main className="flex-1 overflow-auto p-4 sm:p-6">{children}</main>
       </div>
+
+      {/* Overlay for click-outside */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/40 z-40"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
     </div>
   );
 };
