@@ -29,8 +29,8 @@ const About = () => {
             <p className="mt-1 text-xs sm:text-sm uppercase tracking-wider text-teal-600">
               Full Stack Web Developer
             </p>
-            <a href="https://drive.google.com/file/d/1nUeKhgqDBC4ZNSzLilotUZPH2jIZ5CWT/view?usp=sharing">
-            <button className="mt-5 w-full flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-full font-medium shadow-lg transition max-w-[240px]">
+            <a href="https://drive.google.com/file/d/1mfWdd8W0xHSvx-fy8W9zHr7agqDcmkQ4/view?usp=sharing">
+            <button className="mt-5 w-full flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-800 text-white px-5 py-2 rounded-full font-medium shadow-lg transition max-w-[240px]">
               <Download className="w-6 h-6 " />
               Download Resume
             </button>

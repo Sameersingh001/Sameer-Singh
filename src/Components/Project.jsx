@@ -2,6 +2,15 @@ import React from "react";
 import { ExternalLink, Code, Star } from "lucide-react";
 
 const projects = [
+{
+  title: "Employee Management System",
+  image: '/Project8.png',
+  description: "A web-based Employee Management System to handle employee records, roles, and organizational data efficiently.",
+  link: "https://ems-xutx.onrender.com/",
+  repo: "https://github.com/Sameersingh001/EMS/tree/master",
+  tags: ["React", "Express.js","ejs","Rest Api", "Render"],
+  featured: false,
+},
   {
     title: "Desi Jugaad App",
     image: '/Project1.png',
@@ -72,7 +81,7 @@ const Projects = () => {
               key={project.title}
               className={`
                 relative flex flex-col justify-between rounded-2xl p-6 shadow-2xl overflow-hidden border transition-transform
-                hover:scale-[1.03] dark:bg-[#1f2f5f]
+                hover:scale-[1.03] dark:bg-[#1f2f5f]  hover:shadow-blue-400/40 hover:-translate-y-1
                 ${project.featured ? "border-teal-500" : "border-transparent"}
               `}
             >

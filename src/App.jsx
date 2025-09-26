@@ -5,6 +5,7 @@ import About from './Components/About';
 import Projects from './Components/Project';
 import Contact from './Components/Contact';
 import Footer from './Components/Footer';
+import Certificate from './Components/Cirtificate'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
     </ HeaderSidebarLayout >
       <Skills />
       <Projects />
+      <Certificate />
       <Contact />
       <Footer />
     </>
