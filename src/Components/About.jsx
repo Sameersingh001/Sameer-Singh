@@ -87,10 +87,9 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
               >
-                I&apos;m a passionate full stack web developer specializing in React,
-                Node.js, and modern web technologies. I build scalable, performant, and
-                user-centric applications. My approach blends clean architecture with
-                thoughtful UX to turn ideas into production-ready digital experiences.
+                I am a passionate Full Stack Web Developer with expertise in React, Node.js, and modern web technologies. I specialize in building scalable, high-performance, and user-centric applications that combine clean architecture with thoughtful user experiences.
+
+                Alongside my development work, I am continuously expanding my knowledge in areas such as cloud deployment, API design, system optimization, and emerging frameworks to stay aligned with industry best practices. My learning-driven approach ensures that I not only deliver production-ready digital solutions but also grow consistently as a developer.
               </motion.p>
 
               {/* Skills - Stagger progress bars on scroll */}
