@@ -2,15 +2,33 @@ import React from "react";
 import { ExternalLink, Code, Star } from "lucide-react";
 
 const projects = [
-{
-  title: "Employee Management System",
-  image: '/Project8.png',
-  description: "A web-based Employee Management System to handle employee records, roles, and organizational data efficiently.",
-  link: "https://ems-xutx.onrender.com/",
-  repo: "https://github.com/Sameersingh001/EMS/tree/master",
-  tags: ["React", "Express.js","ejs","Rest Api", "Render"],
-  featured: false,
-},
+  {
+    title: "Intern Management System",
+    image: '/Project9.png',
+    description: "A comprehensive platform to manage internship programs, track intern progress, assign mentors, and streamline the entire internship lifecycle with automated reporting.",
+    link: "https://intern-management-system.vercel.app/",
+    repo: "https://github.com/Sameersingh001/IMS_team_project",
+    tags: ["React", "Node.js", "MongoDB", "Express", "JWT"],
+    featured: true,
+  },
+  {
+    title: "Student Management System",
+    image: '/Project10.png',
+    description: "A full-stack application for educational institutions to manage student records, attendance, grades, and academic performance with real-time analytics and reporting.",
+    link: "https://student-management-system-sameer.vercel.app/",
+    repo: "https://github.com/Sameersingh001/Chhatrakosh",
+    tags: ["React", "Express.js", "MySQL", "REST API", "Chart.js"],
+    featured: true,
+  },
+  {
+    title: "Employee Management System",
+    image: '/Project8.png',
+    description: "A web-based Employee Management System to handle employee records, roles, and organizational data efficiently.",
+    link: "https://ems-xutx.onrender.com/",
+    repo: "https://github.com/Sameersingh001/EMS/tree/master",
+    tags: ["React", "Express.js","ejs","Rest Api", "Render"],
+    featured: false,
+  },
   {
     title: "Desi Jugaad App",
     image: '/Project1.png',
@@ -92,9 +110,12 @@ const Projects = () => {
                 </div>
               )}
 
-
               <div>
-                <img src={project.image} alt="Project image" className="rounded-2xl" />
+                <img 
+                  src={project.image} 
+                  alt={`${project.title} screenshot`} 
+                  className="rounded-2xl w-full h-48 object-cover"
+                />
               </div>
 
               <div className="space-y-3">
@@ -120,20 +141,34 @@ const Projects = () => {
                 <div className="flex gap-3">
                   <a
                     href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={`View live demo of ${project.title}`}
                     className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-full text-sm font-semibold transition"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Live
                   </a>
-                  <a
-                    href={project.repo}
-                    aria-label={`View source code of ${project.title}`}
-                    className="inline-flex items-center gap-2 border border-teal-600 hover:bg-teal-50 dark:hover:bg-[#23335d] text-teal-600 dark:text-teal-300 px-4 py-2 rounded-full text-sm font-medium transition"
-                  >
-                    <Code className="w-4 h-4" />
-                    Source
-                  </a>
+                  {project.repo && project.repo !== "#" ? (
+                    <a
+                      href={project.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View source code of ${project.title}`}
+                      className="inline-flex items-center gap-2 border border-teal-600 hover:bg-teal-50 dark:hover:bg-[#23335d] text-teal-600 dark:text-teal-300 px-4 py-2 rounded-full text-sm font-medium transition"
+                    >
+                      <Code className="w-4 h-4" />
+                      Source
+                    </a>
+                  ) : (
+                    <button
+                      disabled
+                      className="inline-flex items-center gap-2 border border-gray-400 text-gray-400 px-4 py-2 rounded-full text-sm font-medium cursor-not-allowed"
+                    >
+                      <Code className="w-4 h-4" />
+                      Private
+                    </button>
+                  )}
                 </div>
                 <div className="text-xs text-gray-500 dark:text-gray-400">
                   {project.featured
