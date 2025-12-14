@@ -36,7 +36,7 @@ const About = () => {
               transition={{ type: "spring", stiffness: 200 }}
             >
               <img
-                src="/Profile.jpg"
+                src="/main.jpg"
                 alt="Profile of Sameer Singh"
                 className="object-cover w-full h-full"
               />

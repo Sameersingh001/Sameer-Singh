@@ -27,60 +27,81 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-teal-50 dark:from-[#0f1f44] dark:to-[#1f2f5f]"
+      className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8
+      bg-gradient-to-b from-white to-teal-50
+      dark:from-[#0f1f44] dark:to-[#1f2f5f]"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-8xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-center text-teal-800 dark:text-teal-300">
           Skills & Expertise
         </h2>
-        <p className="text-center text-gray-600 dark:text-gray-300 mb-8 sm:mb-10 max-w-2xl mx-auto text-sm sm:text-base">
-          Modern full-stack toolkit I use to build scalable, performant, and
-          user-friendly web applications. Each skill is backed by hands-on usage
-          and real project experience.
+
+        <p className="text-center text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto text-sm sm:text-base">
+          Modern full-stack toolkit I use to build scalable and performant
+          applications with real-world experience.
         </p>
 
-        {/* Responsive grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
           {skillData.map((skill) => (
             <div
               key={skill.name}
-              className="relative group bg-white dark:bg-[#1f2f5f] rounded-2xl shadow-lg hover:shadow-xl transition-transform hover:scale-[1.02] border border-teal-100 dark:border-[#23335d] p-5 flex flex-col"
+              className="
+                relative group
+                bg-white dark:bg-[#1f2f5f]
+                rounded-2xl
+                border border-teal-100 dark:border-[#23335d]
+                shadow-lg hover:shadow-xl
+                transition-all duration-300
+                hover:scale-[1.02]
+                p-5
+                flex flex-col
+                min-h-[180px] sm:min-h-[200px]
+              "
             >
               {/* Header */}
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-full bg-gradient-to-br ${skill.color} text-white shadow-md`}>
+                  <div
+                    className={`p-2 rounded-full bg-gradient-to-br ${skill.color} text-white shadow-md`}
+                  >
                     {skill.icon}
                   </div>
                   <div>
                     <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-gray-100">
                       {skill.name}
                     </h3>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">Proficiency</div>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      Proficiency
+                    </p>
                   </div>
                 </div>
-                <div className="text-sm font-bold text-teal-600 dark:text-teal-300">{skill.level}%</div>
+
+                <span className="text-sm font-bold text-teal-600 dark:text-teal-300">
+                  {skill.level}%
+                </span>
               </div>
 
-              {/* Progress bar */}
-              <div className="w-full bg-gray-200 dark:bg-[#223657] rounded-full h-2 overflow-hidden">
-                <div
-                  className="h-2 rounded-full bg-gradient-to-r from-teal-500 to-green-400"
-                  style={{ width: `${skill.level}%` }}
-                />
-              </div>
+              {/* Bottom */}
+              <div className="mt-auto">
+                <div className="w-full bg-gray-200 dark:bg-[#223657] rounded-full h-2 overflow-hidden">
+                  <div
+                    className="h-2 rounded-full bg-gradient-to-r from-teal-500 to-green-400"
+                    style={{ width: `${skill.level}%` }}
+                  />
+                </div>
 
-              {/* Level text */}
-              <div className="mt-3 text-xs text-gray-500 dark:text-gray-400">
-                {skill.level >= 85
-                  ? "Advanced"
-                  : skill.level >= 70
-                  ? "Intermediate"
-                  : "Working Knowledge"}
+                <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">
+                  {skill.level >= 85
+                    ? "Advanced"
+                    : skill.level >= 70
+                    ? "Intermediate"
+                    : "Working Knowledge"}
+                </p>
               </div>
 
               {/* Hover overlay */}
-              <div className="pointer-events-none absolute inset-0 bg-white/0 group-hover:bg-white/5 dark:group-hover:bg-white/10 transition-colors rounded-2xl" />
+              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-white/0 group-hover:bg-white/5 dark:group-hover:bg-white/10 transition-colors" />
             </div>
           ))}
         </div>
